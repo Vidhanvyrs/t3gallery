@@ -1,24 +1,35 @@
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "~/server/db";
 
 export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
+async function Images() {
   const images = await db.query.images.findMany({
     orderBy: (model, { desc }) => desc(model.id), //model is whatever name you want for your database basically
   }); //default the order is gonna be from oldest to newest we want to flip that
 
   //console.log(posts); //we cannot do console.log here because this component is running on server
+  return (
+    <div className="flex flex-wrap gap-4">
+      {[...images, ...images, ...images].map((image, index) => (
+        <div key={image.id + "-" + index} className="flex w-48 flex-col">
+          <img src={image.url} alt="images" />
+          <div>{image.name}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
+export default async function HomePage() {
   return (
     <main className="">
-      <div className="flex flex-wrap gap-4">
-        {[...images, ...images, ...images].map((image, index) => (
-          <div key={image.id + "-" + index} className="flex w-48 flex-col">
-            <img src={image.url} alt="images" />
-            <div>{image.name}</div>
-          </div>
-        ))}
-      </div>
+      <SignedOut>
+        <div className="h-full w-full text-center text-2xl">Please sign in</div>
+      </SignedOut>
+      <SignedIn>
+        <Images />
+      </SignedIn>
     </main>
   );
 }
