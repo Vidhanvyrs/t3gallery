@@ -10,9 +10,9 @@ async function Images() {
 
   //console.log(posts); //we cannot do console.log here because this component is running on server
   return (
-    <div className="flex flex-wrap gap-4">
-      {[...images, ...images, ...images].map((image, index) => (
-        <div key={image.id + "-" + index} className="flex w-48 flex-col">
+    <div className="flex flex-wrap justify-center gap-4">
+      {images.map((image) => (
+        <div key={image.id} className="flex w-48 flex-col">
           <img src={image.url} alt="images" />
           <div>{image.name}</div>
         </div>
