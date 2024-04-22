@@ -1,13 +1,12 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { db } from "~/server/db";
+import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
-  const images = await db.query.images.findMany({
-    orderBy: (model, { desc }) => desc(model.id), //model is whatever name you want for your database basically
-  }); //default the order is gonna be from oldest to newest we want to flip that
-
+  const images = await getMyImages();
+  //we removed db.query from here to queries.ts to make it more secure
   //console.log(posts); //we cannot do console.log here because this component is running on server
   return (
     <div className="flex flex-wrap justify-center gap-4">
