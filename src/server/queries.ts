@@ -40,3 +40,17 @@ export async function getMyImages() {
 // }
 // Use code with caution.
 // This line returns the user's images.
+
+//this function basically helps us get the info of image for the modal view
+export async function getImage(id: number) {
+  const user = auth();
+  if (!user.userId) throw new Error("Unauthorized");
+  const image = await db.query.images.findFirst({
+    //find only one image which is what findFirst is
+    where: (model, { eq }) => eq(model.id, id),
+  });
+  if (!image) throw new Error("Image not found");
+
+  if (image.userId !== user.userId) throw new Error("Unauthorized");
+  return image;
+}

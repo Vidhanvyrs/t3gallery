@@ -9,9 +9,9 @@
 - [x] Attach database to UI
 - [x] Add authentication (w/ clerk)
 - [x] Add image upload
-- [ ] "taint" (server-only-bestpractice to handle sever behaviors in react apps )
+- [x] "taint" (server-only-bestpractice to handle sever behaviors in react apps )
 - [x] Use Next/Image component
-- [ ] Error management (w/ Sentry)
+- [x] Error management (w/ Sentry)
 - [ ] Routing/image page (parallel route)
 - [ ] Delete button (w/ Server Actions)
 - [ ] Analytics (posthog)
