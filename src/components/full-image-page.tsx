@@ -38,6 +38,10 @@ export default async function FullPageImageView(props: { photoId: string }) {
             </Button>
           </form>
         </div>
+
+        <div className="flex flex-col p-2">
+          <span>Press |Esc| to get back!</span>
+        </div>
       </div>
     </div>
   );
