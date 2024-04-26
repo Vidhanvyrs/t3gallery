@@ -77,7 +77,7 @@ export default function SimpleUploadButton() {
   const posthog = usePostHog();
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
-      posthog.capture("posthog");
+      posthog.capture("upload begin");
       toast(
         <div className="flex items-center gap-2 text-white">
           <LoadingSpinnerSVG />
