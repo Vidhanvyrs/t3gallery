@@ -12,7 +12,7 @@
 - [x] "taint" (server-only-bestpractice to handle sever behaviors in react apps )
 - [x] Use Next/Image component
 - [x] Error management (w/ Sentry)
-- [ ] Routing/image page (parallel route)
+- [x] Routing/image page (parallel route)
 - [ ] Delete button (w/ Server Actions)
 - [ ] Analytics (posthog)
 - [ ] Ratelimitting (upstash)
