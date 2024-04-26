@@ -84,13 +84,13 @@ dialog:modal {
   width: 0.3rem;
 }
 
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background-color: rgb(0, 0, 0);
 }
 ::-webkit-scrollbar-thumb {
   background-color: #fcfcfc;
   border-radius: 1rem;
-}
+} */
 spinner_z9k8 {
   transform-origin: center;
   animation: spinner_StKS 0.75s infinite linear;

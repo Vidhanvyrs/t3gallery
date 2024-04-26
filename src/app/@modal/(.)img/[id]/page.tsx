@@ -1,4 +1,4 @@
-import { getImage } from "~/server/queries";
+// import { getImage } from "~/server/queries";
 import { Modal } from "./modal";
 import FullPageImageView from "~/components/full-image-page";
 
@@ -11,7 +11,7 @@ export default function PhotoModal({
   if (Number.isNaN(idAsNumber)) throw new Error("Invalid photo id");
   return (
     <Modal>
-      <FullPageImageView id={idAsNumber} />
+      <FullPageImageView photoId={photoId} />
     </Modal>
   );
 }
