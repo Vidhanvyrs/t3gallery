@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { images } from "./db/schema";
+import analyticsServerClient from "./analytics";
 
 export async function getMyImages() {
   //we are going to auth here because we do not want everyone to see the images that one particular user has uploaded we just need those image to be displayed that is displyed by me
@@ -72,5 +73,13 @@ export async function deleteImage(id: number) {
     .delete(images)
     .where(and(eq(images.id, id), eq(images.userId, user.userId))); //eq means equal in drizzle/postgres
 
+  //adding server side analytics through posthog
+  analyticsServerClient.capture({
+    distinctId: user.userId,
+    event: "delete image",
+    properties: {
+      imageId: id,
+    },
+  });
   redirect("/");
 }
