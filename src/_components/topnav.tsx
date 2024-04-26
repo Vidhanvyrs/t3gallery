@@ -7,7 +7,7 @@ export function TopNav() {
   //to refresh the page once you upload
   return (
     <nav className="flex items-center justify-between border-b p-4 text-xl font-semibold">
-      <div>Gallery</div>
+      <div>ImgGallery (Upload your Images here! 😎⭐💖)</div>
       <div className="flex flex-row items-center gap-4">
         <SignedOut>
           <SignInButton />
